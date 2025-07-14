@@ -1,0 +1,20 @@
+#include <LiquidCrystal.h>
+LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
+const int pirPin = 8;
+
+void setup() {
+  lcd.begin(16, 2);
+  pinMode(pirPin, INPUT);
+  
+  lcd.clear();
+}
+
+void loop() {
+  lcd.setCursor(0, 0);
+  if (digitalRead(pirPin)) {
+    lcd.print("Motion Detected ");
+  } else {
+    lcd.print("No Motion       ");
+  }
+  delay(500);
+}
